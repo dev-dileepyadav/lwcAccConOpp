@@ -1,0 +1,280 @@
+<template>
+    <div class="slds-m-around_medium slds-m-horizontal_medium">
+                                      <!--Account Details-->
+    <lightning-card title="Account Details">
+        <lightning-layout>
+            <lightning-layout-item size="6">
+                <div class="slds-m-around_small slds-m-right_small">
+                <lightning-input label="Account Name" onchange={handleAccountName}></lightning-input>
+                <lightning-input label="Phone" onchange={handlePhone}></lightning-input>
+                <lightning-input type="email" label=" Email" onchange={handleEmail}></lightning-input>
+                <lightning-input type="number" label="Account Number" onchange={handleAccountNumber}></lightning-input>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <div class="slds-m-around_small slds-m-right_small">
+                    <label>Industry</label><br/>
+                    <select style="width: 100%; height: 20px;" onchange={handleIndustry}>
+                        <option value=""></option>
+                        <option value="Agriculture">Agriculture</option>
+                        <option value="Apparel">Apparel</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Chemicals">Chemicals</option>
+                        <option value="Communications">Communications</option>
+                        <option value="Construction">Construction</option>
+                        <option value="Education">Education</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Energy">Energy</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Environmental">Environmental</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Food & Beverage">Food & Beverage</option>
+                        <option value="Government">Government</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Hospitality">Hospitality</option>
+                        <option value="Insurance">Insurance</option>
+                        <option value="Machinery">Machinery</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="Media">Media</option>
+                        <option value="Not For Profit">Not For Profit</option>
+                        <option value="Other">Other</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Telecommunications"></option>
+                        <option value="Technology">Technology</option>
+                        <option value="Shipping">Shipping</option>
+                        <option value="Retail">Retail</option>
+                        <option value="Recreation">Recreation</option>
+                        </select>
+                    <label>Type</label><br/>
+                    <select style="width: 100%; height: 20px;" onchange={handleType}>
+                        <option value=""></option>
+                        <option value="Prospect">Prospect</option>
+                        <option value="Customer - Direct">Customer - Direct</option>
+                        <option value="Customer - Channel">Customer - Channel</option>
+                        <option value="Channel Partner / Reseller">Channel Partner / Reseller</option>
+                        <option value="Installation Partner">Installation Partner</option>
+                        <option value="Technology Partner">Technology Partner</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <label>Rating</label><br/>
+                    <select style="width: 100%; height: 20px;" onchange={handleRating}>
+                        <option value="Cold">Cold</option>
+                        <option value="Warm">Warm</option>
+                        <option value="Hot">Hot</option>
+                    </select>
+                <lightning-input type="number" label="Annual Revenue" onchange={handleRevenue}></lightning-input>
+                
+            </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    <lightning-layout>
+        <lightning-layout-item size="6">
+            
+            <lightning-card title="Billing Address">
+                <div class="slds-m-around_small slds-m-right_small">
+                <lightning-input-address
+                address-label=""
+                street-label="Billing Street"
+                city-label="Billing City"
+                country-label="Billing Country"
+                province-label="Billing Province"
+                postal-code-label="Billing PostalCode"
+                street={street}
+                city={city}
+                country={country}
+                province={province}
+                postal-code={postalcode}
+                field-level-help="Help Text for inputAddress field" onchange={handleBillingAddress}></lightning-input-address>
+            </div>
+            </lightning-card>
+       
+        </lightning-layout-item>
+
+        <lightning-layout-item size="6">
+            
+            <lightning-card title="Shipping Address">
+                <div class="slds-m-around_small">
+                <lightning-input-address
+                address-label=""
+                street-label="Shipping Street"
+                city-label="Shipping City"
+                country-label="Shipping Country"
+                province-label="Shipping Province"
+                postal-code-label="Shipping PostalCode"
+                street={street}
+                city={city}
+                country={country}
+                province={province}
+                postal-code={postalcode}
+                field-level-help="Help Text for inputAddress field" onchange={handleShippingAddress}></lightning-input-address>
+            </div>
+        </lightning-card>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout>
+        <lightning-layout-item size="10" class="slds-m-around_small">
+            <div class="slds-m-around_small slds-m-right_small">
+            <lightning-textarea name="description" label="Description" placeholder="Description" onchange={handleDescription}></lightning-textarea>
+        </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</div>
+                                              <!-- Contact Details Section-->
+<div class="slds-m-around_medium slds-m-horizontal_medium">
+    <lightning-card title="Contact Details">
+        <lightning-layout>
+            <lightning-layout-item size="6">
+                <div class="slds-m-around_small slds-m-right_small">
+                    <lightning-input-name
+                    label="Required Input Name Field"
+                    required
+                    first-name={firstName}
+                    middle-name={middleName}
+                    last-name={lastName}
+                    suffix="The 3rd"
+                    salutation={salutation}
+                    options={salutationOptions}
+                    fields-to-display={fields} onchange={handleName}></lightning-input-name>
+                <lightning-input type="number" label="Phone" onchange={handleConPhone}></lightning-input>
+                <lightning-input type="number" label="Home Phone" onchange={handleConHomePhone}></lightning-input>
+                <lightning-input type="email" label=" Email" onchange={handleConEmail}></lightning-input>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="6">
+                <div class="slds-m-around_small slds-m-right_small">
+                <label>Lead Source</label>
+                <select onchange={handelLeadSource}>
+                    <option value="Web">Web</option>
+                    <option value="Phone Inquiry">Phone Inquiry</option>
+                    <option value="Partner Referral">Partner Referral</option>
+                    <option value="Purchased List">Purchased List</option>
+                    <option value="Other">Other</option>
+                </select>
+                <lightning-input type="date" label="Birth Date" onchange={handleBirthDate}></lightning-input>
+                <lightning-input label="Assistant" onchange={handleAss}></lightning-input>
+                <lightning-input label="Assistant Phone" onchange={handleAssPhone}></lightning-input>
+                <lightning-input label="Other Phone" onchange={handleOtherPhone}></lightning-input>
+                <lightning-input label="Fax" onchange={handleFax}></lightning-input>
+            </div>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="6">
+                
+                <lightning-card title="Mailing Address">
+                    <div class="slds-m-around_small slds-m-right_small">
+                    <lightning-input-address
+                    address-label=""
+                    street-label="Mailing Street"
+                    city-label="Mailing City"
+                    country-label="Mailing Country"
+                    province-label="Mailing Province"
+                    postal-code-label="Mailing PostalCode"
+                    street={street}
+                    city={city}
+                    country={country}
+                    province={province}
+                    postal-code={postalcode}
+                    field-level-help="Help Text for inputAddress field" onchange={handleMailingAddress}></lightning-input-address>
+                </div>
+                </lightning-card>
+           
+            </lightning-layout-item>
+    
+            <lightning-layout-item size="6">
+                
+                <lightning-card title="Other Address">
+                    <div class="slds-m-around_small">
+                    <lightning-input-address
+                    address-label=""
+                    street-label="Other Street"
+                    city-label="Other City"
+                    country-label="Other Country"
+                    province-label="Other Province"
+                    postal-code-label="Other PostalCode"
+                    street={street}
+                    city={city}
+                    country={country}
+                    province={province}
+                    postal-code={postalcode}
+                    field-level-help="Help Text for inputAddress field" onchange={handleOtherAddress}></lightning-input-address>
+                </div>
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item size="10" class="slds-m-around_small slds-m-left_large">
+                <div class="slds-m-around_small slds-m-right_small">
+                <lightning-textarea name="description" label="Description" placeholder="Description" onchange={handleConDescription}></lightning-textarea>
+            </div>
+            </lightning-layout-item>
+            
+        </lightning-layout>
+    </lightning-card>
+</div>
+
+<!--Opportunity Section-->
+<div class="slds-m-around_medium slds-m-horizontal_medium">
+<lightning-card title="Opportunity Details">
+    <lightning-layout>
+    <lightning-layout-item size="6">
+        <div class="slds-m-around_small slds-m-right_small">
+        <lightning-input type="date" label="Close Date" onchange={handleCloseDate}></lightning-input>
+        <label>Stage</label><br/>
+                    <select style="width: 100%; height: 20px;" onchange={handleStage}>
+                        <option value=""></option>
+                        <option value="Lead Generated">Lead Generated</option>
+                        <option value="Need Analysis">Need Analysis</option>
+                        <option value="Quote Submitted">Quote Submitted</option>
+                        <option value="Negotiation">Negotiation</option>
+                        <option value="Closed Won">Closed Won</option>
+                        <option value="Closed Lost">Closed Lost</option>
+                    </select>
+        <lightning-input label="Remarks" onchange={handleRemarks}></lightning-input>
+        <lightning-input type="email" label="Email" onchange={handleOppEmail}></lightning-input>
+    </div>
+    </lightning-layout-item>
+
+        <lightning-layout-item size="6">
+            <div class="slds-m-around_small slds-m-right_small">
+        <lightning-input type="number" label="Fax" onchange={handleOppFax}></lightning-input>
+        <label>Reason For Lost</label><br/>
+                    <select style="width: 100%; height: 20px;" onchange={handleReasonForLost}>
+                        <option value=""></option>
+                        <option value="Already Supplying">Already Supplying</option>
+                        <option value="No Application">No Application</option>
+                        <option value="No Product">No Product</option>
+                        <option value="Not Entertaining The User">Not Entertaining The User</option>
+                        <option value="Pricing">Pricing</option>
+                        <option value="Quality">Quality</option>
+                        <option value="To Be Discussed">To Be Discussed</option>
+                        <option value="Others">Others</option>
+                    </select>
+                        
+        <lightning-input label="Other Reason for Lost" onchange={handleOtherReasonForLost}></lightning-input>
+        <label>Lead Source</label><br/>
+                    <select style="width: 100%; height: 20px;" onchange={handelLeadSource}>
+                        <option value=""></option>
+                        <option value="Cold call">Cold call</option>
+                        <option value="Email">Email</option>
+                        <option value="Exhibition">Exhibition</option>
+                        <option value="External Reference">External Reference</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Google">Google</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Mail Chimp">Mail Chimp</option>
+                        <option value="Other">Other</option>
+                    </select>
+        <lightning-input label="Other Lead Source" onchange={handleOtherLeadSource}></lightning-input>
+    </div>
+    </lightning-layout-item>
+</lightning-layout>
+</lightning-card>
+
+</div>
+<lightning-button variant="brand" label="Create Records" title="This button will create Account contact and opportunity together" onclick={handleClick} class="slds-align_absolute-center"></lightning-button>
+</template>
